@@ -41,7 +41,7 @@ function ExplorePage() {
               <Link
                 key={cat.strCategory}
                 to={`/category/${cat.strCategory}`}
-                className="block p-3 bg-white rounded-md shadow-sm hover:bg-orange-100 hover:shadow-md transition-all"
+                className="block p-3 bg-blue-700 rounded-md shadow-sm hover:bg-orange-100 hover:shadow-md transition-all"
               >
                 {cat.strCategory}
               </Link>
