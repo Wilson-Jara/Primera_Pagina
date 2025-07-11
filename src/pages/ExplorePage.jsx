@@ -11,20 +11,32 @@ function ExplorePage() {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      // Hacemos las dos llamadas a la API al mismo tiempo
-      const [categoriesData, areasData] = await Promise.all([
-        getAllCategoriesList(),
-        getAllAreasList(),
-      ]);
-      setCategories(categoriesData);
-      setAreas(areasData);
-      setLoading(false);
+      try {
+        const [categoriesData, areasData] = await Promise.all([
+          getAllCategoriesList(),
+          getAllAreasList(),
+        ]);
+        setCategories(categoriesData);
+        setAreas(areasData);
+      } catch (error) {
+        console.error("Error al cargar las opciones:", error);
+      } finally {
+        setLoading(false);
+      }
     };
     fetchData();
   }, []);
 
+  // 🔄 Bloque con animación de carga
   if (loading) {
-    return <p className="text-center text-xl mt-10">Cargando opciones...</p>;
+    return (
+      <div className="flex flex-col items-center justify-center mt-10">
+        <div className="w-12 h-12 border-4 border-dashed rounded-full animate-spin border-amber-400"></div>
+        <p className="mt-4 text-amber-500 text-xl">
+          🍴 Cargando opciones para explorar...
+        </p>
+      </div>
+    );
   }
 
   return (
@@ -33,7 +45,7 @@ function ExplorePage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Columna de Categorías */}
         <div>
-          <h2 className="text-2xl font-semibold mb-4 border-b-2 border-orange-400 pb-2">
+          <h2 className="text-2xl font-semibold mb-4 border-b-2 border-amber-400 pb-2">
             Por Categoría
           </h2>
           <div className="space-y-2">
@@ -41,7 +53,7 @@ function ExplorePage() {
               <Link
                 key={cat.strCategory}
                 to={`/category/${cat.strCategory}`}
-                className="block p-3 bg-white rounded-md shadow-sm hover:bg-orange-100 hover:shadow-md transition-all"
+                className="block p-3 bg-orange-150 rounded-md shadow-sm hover:bg-orange-200 hover:shadow-md transition-all"
               >
                 {cat.strCategory}
               </Link>
@@ -51,7 +63,7 @@ function ExplorePage() {
 
         {/* Columna de Países */}
         <div>
-          <h2 className="text-2xl font-semibold mb-4 border-b-2 border-teal-400 pb-2">
+          <h2 className="text-2xl font-semibold mb-4 border-b-2 border-orange-400 pb-2">
             Por País
           </h2>
           <div className="space-y-2">
@@ -59,7 +71,7 @@ function ExplorePage() {
               <Link
                 key={area.strArea}
                 to={`/area/${area.strArea}`}
-                className="block p-3 bg-white rounded-md shadow-sm hover:bg-teal-100 hover:shadow-md transition-all"
+                className="block p-3 bg-amber-150 rounded-md shadow-sm hover:bg-amber-200 hover:shadow-md transition-all"
               >
                 {area.strArea}
               </Link>

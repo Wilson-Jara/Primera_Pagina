@@ -6,7 +6,7 @@ function RecipeCard({ recipe }) {
   return (
     <Link
       to={`/recipe/${recipe.idMeal}`}
-      className="bg-white rounded-lg shadow-md overflow-hidden
+      className="bg-orange-300 rounded-lg shadow-md overflow-hidden
                  transform hover:scale-105 transition-transform duration-300"
     >
       <img
@@ -17,7 +17,7 @@ function RecipeCard({ recipe }) {
       <div className="p-4">
         <h3 className="font-bold text-lg truncate">{recipe.strMeal}</h3>
         {recipe.strArea && (
-          <p className="text-sm text-gray-500">{recipe.strArea}</p>
+          <p className="text-sm text-black">{recipe.strArea}</p>
         )}
       </div>
     </Link>

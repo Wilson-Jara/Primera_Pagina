@@ -54,7 +54,7 @@ function RecipeDetail() {
   const convertedInstructions = convertInstructionsToSI(meal.strInstructions);
 
   return (
-    <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+    <div className="max-w-4xl mx-auto bg-orange-300 p-6 rounded-lg shadow-lg">
       <h1 className="text-4xl font-bold mb-4">{meal.strMeal}</h1>
       <div className="flex flex-col md:flex-row gap-8">
         <div className="md:w-1/2">

@@ -1,1 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="31.88" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 257"><defs><linearGradient id="IconifyId1813088fe1fbc01fb466" x1="-.828%" x2="57.636%" y1="7.652%" y2="78.411%"><stop offset="0%" stop-color="#41D1FF"></stop><stop offset="100%" stop-color="#BD34FE"></stop></linearGradient><linearGradient id="IconifyId1813088fe1fbc01fb467" x1="43.376%" x2="50.316%" y1="2.242%" y2="89.03%"><stop offset="0%" stop-color="#FFEA83"></stop><stop offset="8.333%" stop-color="#FFDD35"></stop><stop offset="100%" stop-color="#FFA800"></stop></linearGradient></defs><path fill="url(#IconifyId1813088fe1fbc01fb466)" d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"></path><path fill="url(#IconifyId1813088fe1fbc01fb467)" d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"></path></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="1700 1600 1600 1400" style="rotate: 180deg; width: 100%; height: auto;">
+<defs>
+  <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="500%" y2="500%">
+    <stop offset="0%" stop-color="#FF7F00"/>
+    <stop offset="40%" stop-color="#FFA500"/>
+    <stop offset="70%" stop-color="#FFD700"/>
+    <stop offset="100%" stop-color="#FFF8E1"/>
+  </linearGradient>
+
+  <linearGradient id="creamGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#FFF8E1"/>
+    <stop offset="30%" stop-color="#FFE0B2"/>
+    <stop offset="70%" stop-color="#FFCC80"/>
+    <stop offset="100%" stop-color="#FFB74D"/>
+  </linearGradient>
+
+  <linearGradient id="borderGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#FFA000"/>
+    <stop offset="50%" stop-color="#FF6D00"/>
+    <stop offset="100%" stop-color="#E65100"/>
+  </linearGradient>
+
+  <style>
+    path {
+      stroke: url(#borderGradient);
+      stroke-width: 2;
+      stroke-linejoin: round;
+    }
+  </style>
+</defs>
+
+<!-- Contorno principal -->
+<path fill="url(#orangeGradient)" d="M1942 2888 c-36 -45 -62 -183 -44 -243 8 -27 4 -35 -38 -85 -99 -116
+-140 -213 -140 -332 1 -92 13 -146 51 -224 215 -437 1001 -511 1358 -128 190
+202 193 481 7 682 l-40 44 3 87 c3 96 -11 158 -42 192 -17 18 -27 21 -69 16
+-62 -8 -143 -44 -191 -86 l-36 -33 -93 16 c-116 20 -243 20 -347 1 l-82 -16
+-43 35 c-81 67 -225 109 -254 74z m148 -69 c25 -11 63 -38 85 -59 l40 -39 101
+18 c119 21 256 19 379 -5 l83 -16 32 35 c37 43 120 84 175 89 37 3 40 1 52
+-32 15 -44 16 -147 3 -187 -10 -29 -8 -33 45 -88 33 -35 71 -89 93 -134 36
+-73 37 -78 37 -186 0 -103 -2 -114 -32 -175 -108 -222 -375 -360 -692 -360
+-383 1 -697 221 -718 505 -10 134 41 259 150 364 41 39 45 47 35 65 -18 31
+-14 155 5 199 16 36 19 38 49 32 18 -4 53 -16 78 -26z"/>
+
+<!-- Detalles en color crema -->
+<path fill="url(#creamGradient)" d="M2200 2375 c-20 -25 -8 -50 25 -50 21 0 31 5 33 18 4 21 -14 47 -33
+47 -7 0 -18 -7 -25 -15z"/>
+<path fill="url(#creamGradient)" d="M2720 2375 c-20 -25 -8 -50 25 -50 21 0 31 5 33 18 4 21 -14 47 -33
+47 -7 0 -18 -7 -25 -15z"/>
+<path fill="url(#creamGradient)" d="M1914 2335 c-4 -9 -2 -21 3 -26 14 -14 95 -37 111 -32 23 9 12 34
+-21 48 -62 26 -86 29 -93 10z"/>
+<path fill="url(#creamGradient)" d="M2988 2334 c-35 -11 -48 -20 -48 -34 0 -29 13 -31 71 -11 40 13 54
+23 54 37 0 24 -19 26 -77 8z"/>
+<path fill="url(#creamGradient)" d="M2450 2272 c0 -20 39 -62 57 -62 14 0 53 61 47 72 -3 4 -27 8 -55 8
+-41 0 -49 -3 -49 -18z"/>
+<path fill="url(#creamGradient)" d="M1902 2224 c-25 -19 -4 -35 51 -38 54 -4 90 15 69 36 -16 16 -98 18
+-120 2z"/>
+<path fill="url(#creamGradient)" d="M2968 2232 c-26 -5 -22 -39 5 -45 18 -4 65 -3 100 2 4 1 7 10 7 21 0
+11 -3 20 -7 21 -25 3 -91 4 -105 1z"/>
+<path fill="url(#orangeGradient)" d="M2480 2147 c0 -82 -76 -113 -161 -65 -31 17 -42 19 -51 10 -17 -17
+-1 -41 43 -64 59 -30 126 -28 167 6 l29 25 49 -25 c36 -19 59 -24 87 -21 45 6
+117 51 117 72 0 25 -27 28 -58 7 -43 -31 -76 -36 -116 -17 -43 20 -48 28 -56
+75 -4 26 -11 36 -28 38 -20 3 -22 -1 -22 -41z"/>
+<path fill="url(#creamGradient)" d="M1953 2124 c-29 -11 -43 -22 -43 -34 0 -26 19 -29 75 -10 37 12 50
+22 50 36 0 25 -28 27 -82 8z"/>
+<path fill="url(#creamGradient)" d="M2940 2121 c0 -25 36 -43 90 -45 73 -2 27 48 -55 61 -31 5 -35 3 -35
+-16z"/>
+</svg>

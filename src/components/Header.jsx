@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-20">
+    <header className="bg-orange-300 shadow-md p-4 flex justify-between items-center sticky top-0 z-20">
       {/* Botón de Home */}
-      <Link to="/" className="text-2xl font-bold text-orange-500">
-        RecetasDelMundo
+      <Link to="/" className="text-2xl font-bold text-black
+      hover:text-orange-700 transition-colors">
+        Gato comida
       </Link>
 
       <nav>
