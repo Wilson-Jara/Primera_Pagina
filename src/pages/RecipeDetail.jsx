@@ -1,31 +1,21 @@
-// src/pages/RecipeDetail.jsx
 import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
-import { getMealById } from "../api/mealApi";
+import { useParams, useNavigate } from "react-router-dom";
 import {
   convertInstructionsToSI,
   convertIngredientMeasure,
 } from "../utils/converters";
+import "../components/creamOrange.css";
+import { getMealById, getRandomMealId } from "../api/mealApi";
 
 function RecipeDetail() {
   const [meal, setMeal] = useState(null);
   const [loading, setLoading] = useState(true);
   const { recipeId } = useParams();
+  const navigate = useNavigate();
   const audioClickRef = useRef(null);
   const audioScrollRef = useRef(null);
 
-  useEffect(() => {
-    const fetchMealDetail = async () => {
-      setLoading(true);
-      const data = await getMealById(recipeId);
-      setTimeout(() => {
-        setMeal(data);
-        setLoading(false);
-      }, 2000);
-    };
-    fetchMealDetail();
-  }, [recipeId]);
-
+  // 🎧 Audios disponibles globalmente
   useEffect(() => {
     const handleClick = () => {
       if (audioClickRef.current) {
@@ -56,22 +46,57 @@ function RecipeDetail() {
     };
   }, []);
 
+  useEffect(() => {
+    const fetchMealDetail = async () => {
+      setLoading(true);
+      const data = await getMealById(recipeId);
+      setTimeout(() => {
+        setMeal(data);
+        setLoading(false);
+      }, 1500); // 🕐 Delay para mostrar el gato animado
+    };
+    fetchMealDetail();
+  }, [recipeId]);
+
+  // 🐾 Mostrar carga con animación gatuna
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen bg-orange-100">
-        <img src="/gato.png" alt="Gato girando" className="w-40 h-40 mb-4" />
-        <p className="text-xl text-center font-semibold text-orange-700 animate-pulse">
-          Cargando receta... 🐱
+      <div className="flex flex-col items-center justify-center h-screen bg-[var(--bg-color)]">
+        <img
+          src="/gatos/gatito_caminando.png"
+          alt="Gatito caminando"
+          className="w-56 h-56 mb-6 gatito-moviendo"
+        />
+        <p className="text-3xl font-bold text-[var(--text-color)] animate-pulse text-center">
+          🍽️ Cargando receta...
         </p>
-        <audio ref={audioClickRef} src="/gato.mp3" preload="auto" />
-        <audio ref={audioScrollRef} src="/gatito.mp3" preload="auto" />
+        <audio ref={audioClickRef} src="/gatos/gato.mp3" preload="auto" />
+        <audio ref={audioScrollRef} src="/gatos/gatito.mp3" preload="auto" />
       </div>
     );
   }
 
   if (!meal) {
-    return <p className="text-center text-xl mt-10">Receta no encontrada.</p>;
+    return (
+      <p className="text-center text-xl mt-10 text-[var(--text-color)]">
+        Receta no encontrada.
+      </p>
+    );
   }
+
+  const categoryPhrases = {
+    Beef: "Una receta que hará maullar fuerte 🐮",
+    Chicken: "Pechuguita miauliciosa en camino 🐔",
+    Seafood: "Del mar al paladar felino 🐟",
+    Vegetarian: "Verde, fresco y purr-fecto 🌿",
+    Dessert: "Dulce como un gatito dormido 🧁",
+    Pasta: "Pasta que ronronea de gusto 🍝",
+    Lamb: "Tierno y digno de un bigote gourmet 🐑",
+  };
+
+  const themedCategoryPhrase =
+    categoryPhrases[meal.strCategory] ||
+    "Más recetas miauliciosas por descubrir 🐾";
 
   const ingredients = [];
   for (let i = 1; i <= 20; i++) {
@@ -90,53 +115,53 @@ function RecipeDetail() {
   const instructions = convertInstructionsToSI(meal.strInstructions);
 
   return (
-    <div className="max-w-4xl mx-auto bg-orange-300 p-6 rounded-lg shadow-lg relative">
-      {/* Audios */}
-      <audio ref={audioClickRef} src="/gato.mp3" preload="auto" />
-      <audio ref={audioScrollRef} src="/gatito.mp3" preload="auto" />
+    <div className="max-w-4xl mx-auto bg-[var(--card-bg)] p-6 rounded-xl shadow-md relative">
+      <audio ref={audioClickRef} src="/gatos/gato.mp3" preload="auto" />
+      <audio ref={audioScrollRef} src="/gatos/gatito.mp3" preload="auto" />
 
-      {/* Huellas en esquinas del contenedor */}
-      <img src="/pata.png" alt="pata" className="absolute top-2 left-2 w-6 h-6 opacity-70 pointer-events-none" />
-      <img src="/pata.png" alt="pata" className="absolute top-2 right-2 w-6 h-6 opacity-70 pointer-events-none" />
-      <img src="/pata.png" alt="pata" className="absolute bottom-2 left-2 w-6 h-6 opacity-70 pointer-events-none" />
-      <img src="/pata.png" alt="pata" className="absolute bottom-2 right-2 w-6 h-6 opacity-70 pointer-events-none" />
+      {/* Huellitas decorativas */}
+      <img
+        src="/gatos/pata.png"
+        alt="huella"
+        className="absolute top-2 left-2 w-6 h-6 opacity-50"
+      />
+      <img
+        src="/gatos/pata.png"
+        alt="huella"
+        className="absolute top-2 right-2 w-6 h-6 opacity-50"
+      />
 
-      <h1 className="text-4xl font-bold mb-4 flex items-center gap-2">
-        {meal.strMeal} <span className="text-3xl animate-pulse">🔥</span>
+      <h1 className="text-4xl font-bold mb-4 text-[var(--text-color)] flex items-center gap-2">
+        {meal.strMeal} <span className="text-3xl animate-bounce">🍽️</span>
       </h1>
 
-      <div className="text-center mb-6">
-        <span className="inline-block bg-orange-400 text-black px-3 py-1 rounded-full shadow-md animate-bounce font-semibold">
+      <div className="mb-6 text-center">
+        <span className="inline-block bg-[var(--primary-color)] text-white px-4 py-1 rounded-full font-semibold shadow-lg animate-pulse">
           🌟 Receta Estelar 🌟
         </span>
       </div>
 
       <div className="flex flex-col md:flex-row gap-8">
-        <div className="md:w-1/2">
-          <div className="relative w-full">
-            <img
-              src={meal.strMealThumb}
-              alt={meal.strMeal}
-              className="w-full rounded-lg border-4 border-white animate-border-glow"
-            />
-            {/* 🐾 Cuatro huellas decorativas dentro del plato */}
-            <img src="/pata.png" alt="pata" className="absolute top-2 left-2 w-5 h-5 opacity-80 pointer-events-none" />
-            <img src="/pata.png" alt="pata" className="absolute top-2 right-2 w-5 h-5 opacity-80 pointer-events-none" />
-            <img src="/pata.png" alt="pata" className="absolute bottom-2 left-2 w-5 h-5 opacity-80 pointer-events-none" />
-            <img src="/pata.png" alt="pata" className="absolute bottom-2 right-2 w-5 h-5 opacity-80 pointer-events-none" />
-          </div>
-          <p className="text-gray-600 mt-2">
+        <div className="md:w-1/2 relative">
+          <img
+            src={meal.strMealThumb}
+            alt={meal.strMeal}
+            className="w-full rounded-xl border-4 border-[var(--soft-white)] shadow-xl"
+          />
+          <p className="text-[var(--text-color)] mt-2 text-sm">
             <strong>Categoría:</strong> {meal.strCategory} |{" "}
             <strong>Origen:</strong> {meal.strArea}
           </p>
         </div>
 
         <div className="md:w-1/2">
-          <h2 className="text-2xl font-semibold mb-3">Ingredientes</h2>
-          <ul className="list-disc list-inside space-y-1">
+          <h2 className="text-2xl font-semibold mb-3 text-[var(--text-color)]">
+            Ingredientes
+          </h2>
+          <ul className="list-disc list-inside space-y-1 text-[var(--text-color)]">
             {ingredients.map((ing, index) => (
               <li key={index}>
-                {ing.name} - <strong>{ing.measure}</strong>
+                {ing.name} – <strong>{ing.measure}</strong>
               </li>
             ))}
           </ul>
@@ -144,16 +169,53 @@ function RecipeDetail() {
       </div>
 
       <div className="mt-8">
-        <h2 className="text-2xl font-semibold mb-3">Instrucciones</h2>
+        <h2 className="text-2xl font-semibold mb-3 text-[var(--text-color)]">
+          Instrucciones
+        </h2>
         {instructions.split("\n").map((text, i) => (
-          <p key={i} className="mb-4 text-justify">
+          <p key={i} className="mb-4 text-justify text-[var(--text-color)]">
             {text}
           </p>
         ))}
       </div>
 
-      <p className="text-center text-sm mt-6 italic text-gray-800">
-        ✨ Esta receta fue aprobada por gatos gourmet. ¡Miau buen provecho! ✨
+      {/* 🐾 Botones finales con frases temáticas */}
+      <div className="mt-6 text-center flex flex-col md:flex-row gap-4 justify-center items-center">
+        <button
+          className="felinic-button"
+          onClick={() => navigate(`/category/${meal.strCategory}`)}
+        >
+          <span>
+            Recetas similares
+            <br />
+            <small>{themedCategoryPhrase}</small>
+          </span>
+        </button>
+
+        <button
+          className="felinic-button"
+          onClick={async () => {
+            const randomId = await getRandomMealId();
+            if (randomId) {
+              navigate(`/recipe/${randomId}`);
+            } else {
+              alert("No se encontró una receta aleatoria 🐾");
+            }
+          }}
+        >
+          <span>
+            Receta al azar
+            <br />
+            <small>
+              ¿Quién sabe? Quizás algo *miaulicioso* te espera 😸
+            </small>
+          </span>
+        </button>
+      </div>
+
+      <p className="mt-7 italic text-[#141313] text-sm text-center">
+
+        ✨ Receta aprobada por felinos gourmet. ¡Miau buen provecho! ✨
       </p>
     </div>
   );

@@ -1,8 +1,5 @@
-// src/api/mealApi.js
-
 const API_BASE_URL = "https://www.themealdb.com/api/json/v1/1";
 
-// --- ESTA ES LA FUNCIÓN QUE FALTABA O ESTABA INCORRECTA ---
 export const getRecipesByFirstLetter = async (letter) => {
   try {
     const response = await fetch(`${API_BASE_URL}/search.php?f=${letter}`);
@@ -14,7 +11,6 @@ export const getRecipesByFirstLetter = async (letter) => {
   }
 };
 
-// Función para obtener la lista de todas las categorías (info completa)
 export const getCategories = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/categories.php`);
@@ -26,7 +22,6 @@ export const getCategories = async () => {
   }
 };
 
-// Función para obtener las recetas de una categoría específica
 export const getMealsByCategory = async (categoryName) => {
   try {
     const response = await fetch(`${API_BASE_URL}/filter.php?c=${categoryName}`);
@@ -38,7 +33,6 @@ export const getMealsByCategory = async (categoryName) => {
   }
 };
 
-// Función para obtener los detalles completos de una receta por su ID
 export const getMealById = async (id) => {
   try {
     const response = await fetch(`${API_BASE_URL}/lookup.php?i=${id}`);
@@ -50,7 +44,6 @@ export const getMealById = async (id) => {
   }
 };
 
-// Función para buscar recetas por nombre
 export const searchMealsByName = async (name) => {
   try {
     const response = await fetch(`${API_BASE_URL}/search.php?s=${name}`);
@@ -62,7 +55,6 @@ export const searchMealsByName = async (name) => {
   }
 };
 
-// Función para obtener la lista de todas las categorías (solo nombres)
 export const getAllCategoriesList = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/list.php?c=list`);
@@ -74,7 +66,6 @@ export const getAllCategoriesList = async () => {
   }
 };
 
-// Función para obtener la lista de todos los países/áreas
 export const getAllAreasList = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/list.php?a=list`);
@@ -86,7 +77,6 @@ export const getAllAreasList = async () => {
   }
 };
 
-// Función para obtener las recetas de un país/área específica
 export const getMealsByArea = async (areaName) => {
   try {
     const response = await fetch(`${API_BASE_URL}/filter.php?a=${areaName}`);
@@ -95,5 +85,16 @@ export const getMealsByArea = async (areaName) => {
   } catch (error) {
     console.error("Error fetching meals by area:", error);
     return [];
+  }
+};
+
+export const getRandomMealId = async () => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/random.php`);
+    const data = await response.json();
+    return data.meals?.[0]?.idMeal || null;
+  } catch (error) {
+    console.error("Error fetching random meal:", error);
+    return null;
   }
 };

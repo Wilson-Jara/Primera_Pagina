@@ -30,7 +30,10 @@ function Home() {
       } catch (error) {
         console.error("Failed to fetch all recipes:", error);
       } finally {
-        setLoading(false);
+        // 🐾 Delay de 1 segundo antes de terminar la carga
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
       }
     };
 
@@ -97,11 +100,19 @@ function Home() {
 
   if (loading) {
     return (
-      <p className="text-center text-xl mt-10 text-orange-500">
-        🍽️ Cargando recetas mágicas...
-      </p>
+      <div className="flex flex-col items-center justify-center h-screen bg-[var(--card-bg)]">
+        <img
+          src="/gatos/gatito_caminando.png"
+          alt="Gatito caminando"
+          className="w-56 h-56 mb-6 gatito-moviendo bg-transparent opacity-80"
+        />
+        <p className="text-2xl md:text-3xl font-bold text-[var(--text-color)] animate-pulse text-center">
+          🍽️ Cargando recetas mágicas...
+        </p>
+      </div>
     );
   }
+
 
   const visibleRecipes = filteredRecipes.slice(0, visibleCount);
 

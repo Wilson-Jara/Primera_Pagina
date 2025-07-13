@@ -1,0 +1,110 @@
+:root {
+    --bg-color: #ffe0c1;
+    /* fondo durazno claro */
+    --primary-color: #ff8f62;
+    /* acento salmón pastel */
+    --card-bg: #ffbc79;
+    /* tarjetas durazno suave */
+    --text-color: #b68866;
+    /* texto caramelito */
+    --soft-white: #fdfdf9;
+    /* blanco cálido */
+}
+
+/* 🐾 Fondo general pastel con gatitos */
+.felinic-wrapper {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    background-image: url("/gatos/gatitos_fondo.png");
+    background-repeat: repeat;
+    background-size: 100px;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    z-index: 1;
+}
+
+/* Capa difusa pastel encima del fondo */
+.felinic-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--bg-color);
+    opacity: 0.96;
+    z-index: 0;
+}
+
+/* 🍽️ Botón con efecto felino */
+.felinic-button {
+    background-color: var(--primary-color);
+    color: var(--soft-white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.felinic-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 🍰 Tarjetas receta en color durazno pastel */
+.recipe-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 300px;
+}
+
+.recipe-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.recipe-title {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+/* 🐈 Gatito caminando animado */
+@keyframes caminar-gatito {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(10px);
+    }
+
+    50% {
+        transform: translateX(0);
+    }
+
+    75% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.gatito-moviendo {
+    animation: caminar-gatito 2s infinite ease-in-out;
+}
+
+/* 🐾 Texto decorativo */
+.text-felinic {
+    color: var(--text-color);
+    font-style: italic;
+    text-align: center;
+}
