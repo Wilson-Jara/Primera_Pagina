@@ -383,7 +383,7 @@ function Home() {
             ))}
           </div>
 
-          {visibleRecipes.length < filteredRecipes.length && (
+          {visibleRecipes.length < filteredRecipes.length ? (
             <div className="text-center mt-6">
               <button
                 className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-amber-300 to-orange-400 text-white font-semibold text-lg rounded-full shadow-md hover:scale-105 transition-transform"
@@ -393,14 +393,19 @@ function Home() {
                 Explora las miaucetas exquisitas
               </button>
             </div>
+          ) : (
+            <p className="text-center text-gray-500">
+              No se encontraron recetas con esos filtros.
+            </p>
           )}
         </>
       ) : (
         <p className="text-center text-gray-500">
           No se encontraron recetas con esos filtros.
         </p>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 }
 
