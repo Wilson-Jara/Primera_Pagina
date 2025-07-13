@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { getRecipesByFirstLetter } from "../api/mealApi";
 import RecipeCard from "../components/RecipeCard";
 import ProjectCredits from "../components/ProjectCredits";
+import { FaCat } from "react-icons/fa";
 
 function Home() {
   const [allRecipes, setAllRecipes] = useState([]);
@@ -385,10 +386,11 @@ function Home() {
           {visibleRecipes.length < filteredRecipes.length && (
             <div className="text-center mt-6">
               <button
-                className="px-6 py-2 bg-orange-400 hover:bg-orange-500 text-white rounded-md shadow transition"
+                className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-amber-300 to-orange-400 text-white font-semibold text-lg rounded-full shadow-md hover:scale-105 transition-transform"
                 onClick={() => setVisibleCount(visibleCount + 12)}
               >
-                Ver más recetas
+                <FaCat className="text-white animate-pulse" />
+                Explora las miaucetas exquisitas
               </button>
             </div>
           )}
