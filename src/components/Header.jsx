@@ -8,7 +8,7 @@ function Header() {
       {/* Botón de Home */}
       <Link to="/" className="text-2xl font-bold text-black
       hover:text-orange-700 transition-colors">
-        Gato comida
+        Felinicuisina
       </Link>
 
       <nav>

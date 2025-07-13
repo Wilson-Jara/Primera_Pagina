@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { getRecipesByFirstLetter } from "../api/mealApi";
 import RecipeCard from "../components/RecipeCard";
-import ProjectCredits from "../components/ProjectCredits"; // 👈 NUEVO
+import ProjectCredits from "../components/ProjectCredits";
 
 function Home() {
   const [allRecipes, setAllRecipes] = useState([]);
@@ -10,7 +10,7 @@ function Home() {
   const [visibleCount, setVisibleCount] = useState(12);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedArea, setSelectedArea] = useState(null);
-  const [showCredits, setShowCredits] = useState(false); // 👈 NUEVO
+  const [showCredits, setShowCredits] = useState(false);
 
   useEffect(() => {
     const fetchAllRecipes = async () => {
@@ -56,24 +56,39 @@ function Home() {
       .split(" ")
       .filter(Boolean);
 
-    let result = allRecipes;
+    let result = [...allRecipes];
 
-    if (searchKeywords.length) {
-      result = result.filter((recipe) => {
-        if (!recipe.strMeal) return false;
-        const name = recipe.strMeal.toLowerCase();
-        return searchKeywords.every((kw) => name.includes(kw));
-      });
-    }
+    const noFiltersApplied =
+      searchKeywords.length === 0 &&
+      !selectedCategory &&
+      !selectedArea;
 
-    if (selectedCategory) {
-      result = result.filter(
-        (recipe) => recipe.strCategory === selectedCategory
-      );
-    }
+    if (noFiltersApplied) {
+      // Mezcla aleatoria con Fisher-Yates
+      for (let i = result.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [result[i], result[j]] = [result[j], result[i]];
+      }
+    } else {
+      if (searchKeywords.length) {
+        result = result.filter((recipe) => {
+          if (!recipe.strMeal) return false;
+          const name = recipe.strMeal.toLowerCase();
+          return searchKeywords.every((kw) => name.includes(kw));
+        });
+      }
 
-    if (selectedArea) {
-      result = result.filter((recipe) => recipe.strArea === selectedArea);
+      if (selectedCategory) {
+        result = result.filter(
+          (recipe) => recipe.strCategory === selectedCategory
+        );
+      }
+
+      if (selectedArea) {
+        result = result.filter(
+          (recipe) => recipe.strArea === selectedArea
+        );
+      }
     }
 
     return result;
@@ -93,7 +108,6 @@ function Home() {
     <div>
       <h1 className="text-3xl font-bold mb-4">Todas las Recetas</h1>
 
-      {/* 🎓 Botón para mostrar créditos */}
       <div className="mb-6 text-center">
         <button
           className="px-4 py-2 bg-orange-400 text-white rounded-md shadow hover:bg-orange-500 transition"
@@ -103,10 +117,8 @@ function Home() {
         </button>
       </div>
 
-      {/* 👨‍🍳 Créditos del proyecto */}
       {showCredits && <ProjectCredits />}
 
-      {/* 🔍 Buscador */}
       <div className="mb-6">
         <input
           type="text"
@@ -120,49 +132,248 @@ function Home() {
         />
       </div>
 
-      {/* 🧭 Botones por categoría */}
       <div className="flex flex-wrap gap-2 mb-4">
         {categories.map((category) => (
           <button
             key={category}
-            className={`px-3 py-1 rounded-full text-sm shadow ${
-              selectedCategory === category
-                ? "bg-orange-500 text-white"
-                : "bg-orange-100 text-orange-800"
-            }`}
+            className={`px-3 py-1 rounded-full text-sm shadow ${selectedCategory === category
+              ? "bg-orange-500 text-white"
+              : "bg-orange-100 text-orange-800"
+              }`}
             onClick={() => {
               setSelectedCategory(
                 selectedCategory === category ? null : category
               );
               setVisibleCount(12);
             }}
+
           >
             {category}
           </button>
         ))}
       </div>
 
-      {/* 🌍 Botones por país/área */}
       <div className="flex flex-wrap gap-2 mb-6">
         {areas.map((area) => (
           <button
             key={area}
-            className={`px-3 py-1 rounded-full text-sm shadow ${
-              selectedArea === area
-                ? "bg-green-500 text-white"
-                : "bg-green-100 text-green-800"
-            }`}
+            className={`flex items-center gap-2 px-3 py-1 rounded-full text-sm shadow ${selectedArea === area
+              ? "bg-green-500 text-white"
+              : "bg-green-100 text-green-800"
+              }`}
             onClick={() => {
               setSelectedArea(selectedArea === area ? null : area);
               setVisibleCount(12);
             }}
           >
+            {area === "American" && (
+              <img
+                src="public/banderas/Bandera_USA.png"
+                alt="Bandera USA"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
             {area}
+            {area === "British" && (
+              <img
+                src="public/banderas/Bandera_UK.png"
+                alt="Bandera UK"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Canadian" && (
+              <img
+                src="public/banderas/Bandera_CA.png"
+                alt="Bandera CA"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Chinese" && (
+              <img
+                src="public/banderas/Bandera_CN.png"
+                alt="bandera CN"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Croatian" && (
+              <img
+                src="public/banderas/Bandera_CR.png"
+                alt="bandera CR"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Dutch" && (
+              <img
+                src="public/banderas/Bandera_NT.png"
+                alt="bandera NT"
+                className="w-5 H-5 rounded-full"
+              />
+            )}
+            {area === "Egyptian" && (
+              <img
+                src="public/banderas/Bandera_EG.png"
+                alt="bandera EG"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Filipino" && (
+              <img
+                src="public/banderas/Bandera_FP.png"
+                alt="Bandera FP"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "French" && (
+              <img
+                src="public/banderas/Bandera_FR.png"
+                alt="Bandera FR"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Greek" && (
+              <img
+                src="public/banderas/Bandera_GR.png"
+                alt="Bandera GR"
+                className="w-5 h-5 rounded.full"
+              />
+            )}
+            {area === "Indian" && (
+              <img
+                src="public/banderas/Bandera_IN.png"
+                alt="Bandera IN"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Irish" && (
+              <img
+                src="public/banderas/Bandera_IR.png"
+                alt="Bandera IR"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Italian" && (
+              <img
+                src="public/banderas/Bandera_IT.png"
+                alt="Bandera IT"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Jamaican" && (
+              <img
+                src="public/banderas/Bandera_JMC.png"
+                alt="Bandera JMC"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Japanese" && (
+              <img
+                src="public/banderas/Bandera_JP.png"
+                alt="Bandera JP"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Kenyan" && (
+              <img
+                src="public/banderas/Bandera_KY.png"
+                alt="Bandera KY"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Malaysian" && (
+              <img
+                src="public/banderas/Bandera_MA.png"
+                alt="Bandera MA"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Mexican" && (
+              <img
+                src="public/banderas/Bandera_MX.png"
+                alt="Bandera MX"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Moroccan" && (
+              <img
+                src="public/banderas/Bandera_MR.png"
+                alt="Bandera MR"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Polish" && (
+              <img
+                src="public/banderas/Bandera_PL.png"
+                alt="Bandera PL"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Portuguese" && (
+              <img
+                src="public/banderas/Bandera_PG.png"
+                alt="Bandera PG"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Russian" && (
+              <img
+                src="public/banderas/Bandera_RS.png"
+                alt="Bandera RS"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Spanish" && (
+              <img
+                src="public/banderas/Bandera_SP.png"
+                alt="Bandera SP"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Thai" && (
+              <img
+                src="public/banderas/Bandera_TI.png"
+                alt="Bandera TI"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Tunisian" && (
+              <img
+                src="public/banderas/Bandera_TU.png"
+                alt="Bandera TU"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Turkish" && (
+              <img
+                src="public/banderas/Bandera_TK.png"
+                alt="Bandera TK"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Ukrainian" && (
+              <img
+                src="public/banderas/Bandera_UKA.png"
+                alt="Bandera UKA"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Uruguayan" && (
+              <img
+                src="public/banderas/Bandera_UR.png"
+                alt="Bandera UR"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
+            {area === "Vietnamese" && (
+              <img
+                src="public/banderas/Bandera_VT.png"
+                alt="Bandera VT"
+                className="w-5 h-5 rounded-full"
+              />
+            )}
           </button>
         ))}
       </div>
 
-      {/* 🧁 Render de recetas */}
       {visibleRecipes.length > 0 ? (
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
