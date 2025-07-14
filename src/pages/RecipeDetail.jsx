@@ -94,10 +94,10 @@ function RecipeDetail() {
     Dessert: "Dulce como un gatito dormido 🧁",
     Pasta: "Pasta que ronronea de gusto 🍝",
     Lamb: "Tierno y digno de un bigote gourmet 🐑",
-    pork: "Un cerdito tan sabroso que hasta los gatos hacen fila🐖",
+    Pork: "Un cerdito tan sabroso que hasta los gatos hacen fila🐖",
     Side: "Sabores que se acurrucan al lado de tu plato principal🐈",
     Starter: "Un comienzo que hará ronronear a tu estómago 🐾",
-    vegan: "Verde, fresco y purr-fecto 🌱",
+    Vegan: "Verde, fresco y purr-fecto 🌱",
   };
 
   const themedCategoryPhrase =

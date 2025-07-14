@@ -16,7 +16,7 @@ function CreditsPage() {
                     <p className="mt-4 font-semibold text-lg">🐾Creadora de la página🐾</p>
                 </div>
 
-                <p className="mb-4"><strong>Creadores:</strong></p>
+                <p className="mb-4"><strong>Subditos:</strong></p>
                 <p className="mb-2">Matías Alejandro Cabrera</p>
                 <p className="mb-2">Wilson Alexis Jara</p>
                 <p className="mb-2">Juan Pablo Villarroel</p>
