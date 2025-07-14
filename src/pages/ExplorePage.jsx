@@ -25,19 +25,27 @@ function ExplorePage() {
       } catch (error) {
         console.error("Error al cargar las opciones:", error);
       } finally {
-        setLoading(false);
+        // Delay entre 1 y 2 segundos como máximo
+        const delay = Math.floor(Math.random() * 1000) + 1000; // 1000–2000ms
+        setTimeout(() => {
+          setLoading(false);
+        }, delay);
       }
     };
     fetchData();
   }, []);
 
-  //  Animación de carga
+  // 🐾 Animación de carga con imagen felina
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center mt-10">
-        <div className="w-12 h-12 border-4 border-dashed rounded-full animate-spin border-amber-400"></div>
-        <p className="mt-4 text-amber-500 text-xl">
-          🍴 Cargando opciones para explorar...
+      <div className="flex flex-col items-center justify-center h-screen bg-[var(--card-bg)]">
+        <img
+          src="/gatos/Gato_Saltando.png"
+          alt="Gato saltando"
+          className="w-40 h-40 mb-6 animate-bounce opacity-80"
+        />
+        <p className="text-xl md:text-2xl font-semibold text-[var(--text-color)] animate-pulse text-center">
+          Cargando opciones para explorar...
         </p>
       </div>
     );
@@ -46,7 +54,7 @@ function ExplorePage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       <h1 className="text-4xl font-extrabold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-400 to-yellow-500 drop-shadow-md border-b-4 border-orange-400 pb-4 rounded">
-        Explorar Recetas Deliciosas
+        Explorar Recetas Miauliciosas
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">

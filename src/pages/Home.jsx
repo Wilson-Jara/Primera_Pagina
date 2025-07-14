@@ -3,6 +3,8 @@ import { getRecipesByFirstLetter } from "../api/mealApi";
 import RecipeCard from "../components/RecipeCard";
 import ProjectCredits from "../components/ProjectCredits";
 import { FaCat } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
 
 function Home() {
   const [allRecipes, setAllRecipes] = useState([]);
@@ -12,6 +14,7 @@ function Home() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedArea, setSelectedArea] = useState(null);
   const [showCredits, setShowCredits] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAllRecipes = async () => {
@@ -119,13 +122,12 @@ function Home() {
   return (
     <div>
       <h1 className="text-3xl font-bold mb-4">Todas las Recetas</h1>
-
       <div className="mb-6 text-center">
         <button
           className="px-4 py-2 bg-orange-400 text-white rounded-md shadow hover:bg-orange-500 transition"
-          onClick={() => setShowCredits(!showCredits)}
+          onClick={() => navigate("/creditos")}
         >
-          {showCredits ? "Ocultar Créditos" : "Ver Información del Proyecto"}
+          Ver Créditos del Proyecto
         </button>
       </div>
 
@@ -158,7 +160,6 @@ function Home() {
               );
               setVisibleCount(12);
             }}
-
           >
             {category}
           </button>
@@ -180,7 +181,7 @@ function Home() {
           >
             {area === "American" && (
               <img
-                src="public/banderas/Bandera_USA.png"
+                src="/banderas/Bandera_USA.png"
                 alt="Bandera USA"
                 className="w-5 h-5 rounded-full"
               />
@@ -188,196 +189,196 @@ function Home() {
             {area}
             {area === "British" && (
               <img
-                src="public/banderas/Bandera_UK.png"
+                src="/banderas/Bandera_UK.png"
                 alt="Bandera UK"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Canadian" && (
               <img
-                src="public/banderas/Bandera_CA.png"
+                src="/banderas/Bandera_CA.png"
                 alt="Bandera CA"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Chinese" && (
               <img
-                src="public/banderas/Bandera_CN.png"
+                src="/banderas/Bandera_CN.png"
                 alt="bandera CN"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Croatian" && (
               <img
-                src="public/banderas/Bandera_CR.png"
+                src="/banderas/Bandera_CR.png"
                 alt="bandera CR"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Dutch" && (
               <img
-                src="public/banderas/Bandera_NT.png"
+                src="/banderas/Bandera_NT.png"
                 alt="bandera NT"
-                className="w-5 H-5 rounded-full"
+                className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Egyptian" && (
               <img
-                src="public/banderas/Bandera_EG.png"
+                src="/banderas/Bandera_EG.png"
                 alt="bandera EG"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Filipino" && (
               <img
-                src="public/banderas/Bandera_FP.png"
+                src="/banderas/Bandera_FP.png"
                 alt="Bandera FP"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "French" && (
               <img
-                src="public/banderas/Bandera_FR.png"
+                src="/banderas/Bandera_FR.png"
                 alt="Bandera FR"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Greek" && (
               <img
-                src="public/banderas/Bandera_GR.png"
+                src="/banderas/Bandera_GR.png"
                 alt="Bandera GR"
                 className="w-5 h-5 rounded.full"
               />
             )}
             {area === "Indian" && (
               <img
-                src="public/banderas/Bandera_IN.png"
+                src="/banderas/Bandera_IN.png"
                 alt="Bandera IN"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Irish" && (
               <img
-                src="public/banderas/Bandera_IR.png"
+                src="/banderas/Bandera_IR.png"
                 alt="Bandera IR"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Italian" && (
               <img
-                src="public/banderas/Bandera_IT.png"
+                src="/banderas/Bandera_IT.png"
                 alt="Bandera IT"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Jamaican" && (
               <img
-                src="public/banderas/Bandera_JMC.png"
+                src="/banderas/Bandera_JMC.png"
                 alt="Bandera JMC"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Japanese" && (
               <img
-                src="public/banderas/Bandera_JP.png"
+                src="/banderas/Bandera_JP.png"
                 alt="Bandera JP"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Kenyan" && (
               <img
-                src="public/banderas/Bandera_KY.png"
+                src="/banderas/Bandera_KY.png"
                 alt="Bandera KY"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Malaysian" && (
               <img
-                src="public/banderas/Bandera_MA.png"
+                src="/banderas/Bandera_MA.png"
                 alt="Bandera MA"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Mexican" && (
               <img
-                src="public/banderas/Bandera_MX.png"
+                src="/banderas/Bandera_MX.png"
                 alt="Bandera MX"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Moroccan" && (
               <img
-                src="public/banderas/Bandera_MR.png"
+                src="/banderas/Bandera_MR.png"
                 alt="Bandera MR"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Polish" && (
               <img
-                src="public/banderas/Bandera_PL.png"
+                src="/banderas/Bandera_PL.png"
                 alt="Bandera PL"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Portuguese" && (
               <img
-                src="public/banderas/Bandera_PG.png"
+                src="/banderas/Bandera_PG.png"
                 alt="Bandera PG"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Russian" && (
               <img
-                src="public/banderas/Bandera_RS.png"
+                src="/banderas/Bandera_RS.png"
                 alt="Bandera RS"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Spanish" && (
               <img
-                src="public/banderas/Bandera_SP.png"
+                src="/banderas/Bandera_SP.png"
                 alt="Bandera SP"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Thai" && (
               <img
-                src="public/banderas/Bandera_TI.png"
+                src="/banderas/Bandera_TI.png"
                 alt="Bandera TI"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Tunisian" && (
               <img
-                src="public/banderas/Bandera_TU.png"
+                src="/banderas/Bandera_TU.png"
                 alt="Bandera TU"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Turkish" && (
               <img
-                src="public/banderas/Bandera_TK.png"
+                src="/banderas/Bandera_TK.png"
                 alt="Bandera TK"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Ukrainian" && (
               <img
-                src="public/banderas/Bandera_UKA.png"
+                src="/banderas/Bandera_UKA.png"
                 alt="Bandera UKA"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Uruguayan" && (
               <img
-                src="public/banderas/Bandera_UR.png"
+                src="/banderas/Bandera_UR.png"
                 alt="Bandera UR"
                 className="w-5 h-5 rounded-full"
               />
             )}
             {area === "Vietnamese" && (
               <img
-                src="public/banderas/Bandera_VT.png"
+                src="/banderas/Bandera_VT.png"
                 alt="Bandera VT"
                 className="w-5 h-5 rounded-full"
               />

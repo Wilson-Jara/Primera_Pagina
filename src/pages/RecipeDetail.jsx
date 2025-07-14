@@ -63,8 +63,8 @@ function RecipeDetail() {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-[var(--bg-color)]">
         <img
-          src="/gatos/gatito_caminando.png"
-          alt="Gatito caminando"
+          src="/gatos/gato.png"
+          alt="Gato girando"
           className="w-56 h-56 mb-6 gatito-moviendo"
         />
         <p className="text-3xl font-bold text-[var(--text-color)] animate-pulse text-center">
@@ -86,12 +86,18 @@ function RecipeDetail() {
 
   const categoryPhrases = {
     Beef: "Una receta que hará maullar fuerte 🐮",
+    Breakfast: " Conquista la mañana como un felino hambriento🐾",
     Chicken: "Pechuguita miauliciosa en camino 🐔",
     Seafood: "Del mar al paladar felino 🐟",
+    Miscellaneous: "🐾Sabores que hacen ronronear hasta al más gruñón🐾",
     Vegetarian: "Verde, fresco y purr-fecto 🌿",
     Dessert: "Dulce como un gatito dormido 🧁",
     Pasta: "Pasta que ronronea de gusto 🍝",
     Lamb: "Tierno y digno de un bigote gourmet 🐑",
+    pork: "Un cerdito tan sabroso que hasta los gatos hacen fila🐖",
+    Side: "Sabores que se acurrucan al lado de tu plato principal🐈",
+    Starter: "Un comienzo que hará ronronear a tu estómago 🐾",
+    vegan: "Verde, fresco y purr-fecto 🌱",
   };
 
   const themedCategoryPhrase =

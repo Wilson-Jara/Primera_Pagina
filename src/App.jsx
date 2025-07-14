@@ -12,6 +12,7 @@ import CategoryPage from "./pages/CategoryPage";
 import RecipeDetail from "./pages/RecipeDetail";
 import ExplorePage from "./pages/ExplorePage";
 import AreaPage from "./pages/AreaPage";
+import CreditsPage from "./pages/creditos";
 
 // Estilos gatunos versión crema y naranja
 import "./components/creamOrange.css"; // <- ¡Este es el archivo correcto!
@@ -28,6 +29,7 @@ function App() {
           <Route path="/category/:categoryName" element={<CategoryPage />} />
           <Route path="/area/:areaName" element={<AreaPage />} />
           <Route path="/recipe/:recipeId" element={<RecipeDetail />} />
+          <Route path="/creditos" element={<CreditsPage />} />
         </Routes>
       </main>
     </div>
