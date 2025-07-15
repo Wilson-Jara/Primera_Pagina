@@ -4,7 +4,7 @@ Una aplicación web moderna que combina la API de TheMealDB con adorables gatos 
 
 ## 📋 Descripción del Proyecto
 
-Cat's Kitchen es una aplicación web desarrollada como parte del **Desafío 2** para la materia **ISF113-DESAFÍOS DE INGENIERÍA Y SOCIEDAD** de la Universidad de Valparaíso. La aplicación consume datos de la API de TheMealDB (https://www.themealdb.com/api.php) y los presenta de una manera innovadora combinando recetas de cocina con temática felina.
+Felinicuisina es una aplicación web desarrollada como parte del **Desafío 2** para la materia **ISF113-DESAFÍOS DE INGENIERÍA Y SOCIEDAD** de la Universidad de Valparaíso. La aplicación consume datos de la API de TheMealDB (https://www.themealdb.com/api.php) y los presenta de una manera innovadora combinando recetas de cocina con temática felina.
 
 ## 🎓 Información Académica
 
