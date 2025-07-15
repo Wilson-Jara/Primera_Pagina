@@ -9,7 +9,7 @@ function CreditsPage() {
                 {/* 👩 Imagen de la creadora */}
                 <div className="mb-6">
                     <img
-                        src="/gatos/jefa_G.jpg"  // Asegúrate que esta ruta exista en /public
+                        src="/gatos/jefa_G.jpg" // Asegúrate que esta ruta exista en /public
                         alt="Creadora de la página"
                         className="mx-auto rounded-full shadow-lg w-32 h-32 object-cover"
                     />
@@ -23,21 +23,25 @@ function CreditsPage() {
                 <p className="mb-4">Juan Cortez Gallardo</p>
 
                 <p className="mb-4"><strong>Frontend:</strong> React + Vite</p>
-                <p className="mb-4"><strong>Style components::</strong> Tailwind CSS</p>
+                <p className="mb-4"><strong>Style components:</strong> Tailwind CSS</p>
 
-                <p className="mb-4">
-                    <strong>API usada:</strong>{" "}
-                    <a
-                        href="https://www.themealdb.com/api.php"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-orange-600 underline hover:text-orange-800"
-                    >
-                        TheMealDB
-                    </a>
-                </p>
+                <div className="mb-4">
+                    <p className="mb-2">
+                        <strong>API usada:</strong>{" "}
+                        <a
+                            href="https://www.themealdb.com/api.php"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-orange-600 underline hover:text-orange-800"
+                        >
+                            TheMealDB
+                        </a>
+                    </p>
 
-                <p className="mb-2"><strong>Diseño:</strong> Animaciones personalizadas y experiencia responsiva</p>
+                    <p className="text-sm text-orange-600">
+                        🥘 Esta API permite acceder a recetas de distintas partes del mundo, con detalles como ingredientes, preparación e imagen. También ofrece formas divertidas de descubrir nuevas comidas, ya sea buscando por nombre o explorando al azar, aunque eso solo depende de como uno lo decida usar.
+                    </p>
+                </div>
             </div>
         </div>
     );
