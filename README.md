@@ -12,8 +12,6 @@ Felinicuisina es una aplicación web desarrollada como parte del **Desafío 2** 
 - **Facultad:** Escuela de Ingeniería Informática
 - **Materia:** ISF113-DESAFÍOS DE INGENIERÍA Y SOCIEDAD
 - **Año:** Primer año de Ingeniería Informática
-- **Evaluación:** Desafío 2 (40%)
-- **Fecha:** 15 de Julio y 17 de Julio, 2025
 
 ## 👥 Equipo de Desarrollo
 
