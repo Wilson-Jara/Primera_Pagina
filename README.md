@@ -1,12 +1,84 @@
-# React + Vite
+# 🍽️ Felinicuisina - Recetas 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una aplicación web moderna que combina la API de TheMealDB con adorables gatos para crear una experiencia culinaria única y divertida.
 
-Currently, two official plugins are available:
+## 📋 Descripción del Proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Felinicuisina es una aplicación web desarrollada como parte del **Desafío 2** para la materia **ISF113-DESAFÍOS DE INGENIERÍA Y SOCIEDAD** de la Universidad de Valparaíso. La aplicación consume datos de la API de TheMealDB (https://www.themealdb.com/api.php) y los presenta de una manera innovadora combinando recetas de cocina con temática felina.
 
-## Expanding the ESLint configuration
+## 🎓 Información Académica
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Universidad:** Universidad de Valparaíso
+- **Facultad:** Escuela de Ingeniería Informática
+- **Materia:** ISF113-DESAFÍOS DE INGENIERÍA Y SOCIEDAD
+- **Año:** Primer año de Ingeniería Informática
+
+## 👥 Equipo de Desarrollo
+
+| Nombre | Rol |
+|--------|-----|
+| Wilson Jara | Desarrollo Frontend |
+| Juan Cortez | Diseño UI/UX |
+| Juan Villaroel | Integración API |
+| Matias Cabrera | Gestión de Proyecto |
+
+## 🚀 Tecnologías Utilizadas
+
+- **Frontend:** React
+- **Styling:** Tailwind CSS
+- **Build Tool:** Vite
+- **API:** TheMealDB API
+
+## 🔧 Instalación y Configuración
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/Wilson-Jara/Primera_Pagina.git
+
+# Navegar al directorio del proyecto
+cd Primera_Pagina
+
+# Instalar dependencias
+npm install
+
+# Ejecutar en modo desarrollo
+npm run dev
+```
+
+## 📱 Características Principales
+
+- **🏠 Página de Inicio:** Introducción y navegación principal
+- **📝 Listado de Recetas:** Visualización de recetas obtenidas de la API
+- **🔍 Filtrado de Datos:** Sistema de filtros para buscar recetas específicas
+- **📚 Información de la API:** Documentación sobre TheMealDB
+- **🐱 Temática Felina:** Integración divertida con gatos
+- **👨‍💻 Equipo de Desarrollo:** Presentación del equipo
+- **📱 Diseño Responsivo:** Adaptable a diferentes dispositivos
+
+## 🎨 Diseño
+
+El diseño de la aplicación fue creado utilizando **Figma**, siguiendo las mejores prácticas de UX/UI y garantizando una experiencia responsive en todos los dispositivos.
+
+## 🌟 Funcionalidades Especiales
+
+- Integración completa con TheMealDB API
+- Filtrado avanzado de recetas por categorías, ingredientes y origen
+- Interfaz temática con gatos que hace la experiencia más divertida
+- Diseño moderno y atractivo con Tailwind CSS
+- Navegación intuitiva y fluida
+
+## 🎯 Objetivos del Proyecto
+
+- Desarrollar habilidades en tecnologías web modernas
+- Implementar integración con APIs externas
+- Crear una experiencia de usuario atractiva y funcional
+- Trabajar colaborativamente en equipo
+- Aplicar principios de diseño centrado en el usuario
+
+## 📄 Licencia
+
+Este proyecto es desarrollado con fines académicos para la Universidad de Valparaíso.
+
+---
+
+**Desarrollado con ❤️ por el equipo de Felinicuisina - Universidad de Valparaíso 2025**
