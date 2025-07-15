@@ -75,22 +75,10 @@ El diseño de la aplicación fue creado utilizando **Figma**, siguiendo las mejo
 - Trabajar colaborativamente en equipo
 - Aplicar principios de diseño centrado en el usuario
 
-## 📊 Evaluación
-
-Este proyecto será evaluado según la rúbrica oficial que incluye:
-- Diseño y planificación (20 puntos)
-- Funcionalidades (40 puntos)
-- Presentación (20 puntos)
-- Comunicación (20 puntos)
-
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Por favor, abre un issue o envía un pull request.
-
 ## 📄 Licencia
 
 Este proyecto es desarrollado con fines académicos para la Universidad de Valparaíso.
 
 ---
 
-**Desarrollado con ❤️ por el equipo de Cat's Kitchen - Universidad de Valparaíso 2025**
+**Desarrollado con ❤️ por el equipo de Felinicuisina - Universidad de Valparaíso 2025**
