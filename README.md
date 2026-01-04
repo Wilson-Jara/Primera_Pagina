@@ -82,3 +82,4 @@ Este proyecto es desarrollado con fines académicos para la Universidad de Valpa
 ---
 
 **Desarrollado con ❤️ por el equipo de Felinicuisina - Universidad de Valparaíso 2025**
+**Y con apoyo de la IA**
